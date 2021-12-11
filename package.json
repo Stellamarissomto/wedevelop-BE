@@ -1,0 +1,28 @@
+{
+  "name": "wedevelop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "SET NODE_ENV=production &&  npx tsc & nodemon ./build/server.js",
+    "dev": " npx tsc && nodemon ./build/server.js",
+    "build": "npx tsc"
+  },
+  "author": "ikeonyia somtochukwu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.11.11",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "morgan": "^1.10.0"
+  }
+}
