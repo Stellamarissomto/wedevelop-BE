@@ -6,7 +6,7 @@ cloudi.v2.config({
     api_secret: process.env.API_SECRET,
   });
 
-   export const cloudiUploads = (file: string) => {
+   export const cloudiUploads = (file: string): Promise<cloudi.UploadApiResponse> => {
     return new Promise(() => {
       cloudi.v2.uploader.upload( file);
     });

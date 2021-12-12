@@ -49,23 +49,17 @@ router.delete('/', async (req: Request, res: Response) => {
 router.post('/', multer.single("file") , async (req: Request, res: Response) => {
 
     try {
-        const uploader = await cloudiUploads(`${req.file?.path}`);
-        
-       res.status(200).json({ uploader })
-
-       /* const { title } = req.body;
-        
+        const { title } = req.body;
+     
         const book = await Books.findOne({ title });
 
         if (!book) {
-
-            const uploader = await cloudi(req.body.image);
-
-            res.json({ uploader })
             
-          const newbook = await new Books({
+            const uploader = await cloudiUploads(`${req.file?.path}`);
+            
+            const newbook = await new Books({
               title: req.body.title,
-              image: req.body.image,
+              image: uploader.url,
               category: req.body.category,
               stock: req.body.stock,
               description: req.body.description,
@@ -77,7 +71,7 @@ router.post('/', multer.single("file") , async (req: Request, res: Response) => 
 
          if (book) {
              res.status(200).json({message: "Book already exists, Please go and update the stock inventory"})
-         } */
+         } 
         
         
     } catch (err) {
