@@ -19,15 +19,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-
-// mounte route
-app.use('/v1', routes);
-
-  
-
 // adding morgan logger
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+
+// mounte route
+app.use('/v1', routes);
+
 
 export default app;
