@@ -2,7 +2,7 @@ import { model, Schema, Document } from 'mongoose';
 
 export default interface IBook extends Document {
   title: string;
-  image: string;
+  image?: string;
   category: string;
   description: string;
   stock: number;
@@ -17,7 +17,6 @@ const bookSchema = new Schema({
 
   image: {
     type: Schema.Types.String,
-    required: true,
   },
 
   description: {

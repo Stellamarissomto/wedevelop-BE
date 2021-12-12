@@ -50,13 +50,13 @@ router.post('/', multer.single("file") , async (req: Request, res: Response) => 
 
     try {
         const { title } = req.body;
-     
-        const book = await Books.findOne({ title });
+       
+        const book = await Books.findOne({title});
 
         if (!book) {
             
             const uploader = await cloudiUploads(`${req.file?.path}`);
-            
+ 
             const newbook = await new Books({
               title: req.body.title,
               image: uploader.url,

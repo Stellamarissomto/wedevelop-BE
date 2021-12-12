@@ -7,9 +7,7 @@ cloudi.v2.config({
   });
 
    export const cloudiUploads = (file: string): Promise<cloudi.UploadApiResponse> => {
-    return new Promise(() => {
-      cloudi.v2.uploader.upload( file);
-    });
+      return cloudi.v2.uploader.upload( file);
   };
 
   
