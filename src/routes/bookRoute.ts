@@ -15,7 +15,7 @@ router.get('/', async (req: Request, res: Response) => {
         res.status(200).json({
             status: "success",
             results: book.length,
-             books: book,  
+            book,  
         });
         
     } catch (err) {
