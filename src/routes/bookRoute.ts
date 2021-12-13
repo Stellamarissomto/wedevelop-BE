@@ -73,14 +73,19 @@ router.post('/', multer.single("file") , async (req: Request, res: Response) => 
             
             const uploader = await cloudiUploads(`${req.file?.path}`);
  
-            const newbook = await new Books({
+            const data = {
               title: req.body.title,
               image: uploader.url,
               category: req.body.category,
               stock: req.body.stock,
               description: req.body.description,
-              author: req.body.author  
-            }).save();
+              author: {
+                  lastname: req.body.lastname,
+                  firstname: req.body.firstname
+              } 
+            };
+
+            const newbook = Books.create(data)
             
             res.status(200).json({ newbook}); 
          }

@@ -6,7 +6,7 @@ export default interface IBook extends Document {
   category: string;
   description: string;
   stock: number;
-  author: string
+  author: object
 }
 
 const bookSchema = new Schema({
@@ -35,8 +35,15 @@ const bookSchema = new Schema({
   }, 
   
   author: {
-    type: Schema.Types.String,
-    required: true,
+    lastname: {
+      type: Schema.Types.String,
+      required: true,
+    },
+
+    firstname: {
+      type: Schema.Types.String,
+       required: true,
+    }
 
   }
 
