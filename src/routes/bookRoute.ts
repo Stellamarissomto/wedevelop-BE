@@ -10,7 +10,6 @@ router.get('/', async (req: Request, res: Response) => {
 
     try {
          const book = await Books.find()
-        //.populate("author", ["_id", "firstname", "lastname"] )
         .sort("-updatedAt"); // sort by dated added. most resent at the top
         
         res.status(200).json({
@@ -26,10 +25,27 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 
+router.get('/:id', async (req: Request, res: Response) => {
+
+    try {
+         const book = await Books.findById(req.params.id)
+      
+        res.status(200).json({
+            status: "success",
+             books: book,  
+        });
+        
+    } catch (err) {
+        console.log(err)
+    }
+
+});
+
+
 
 router.delete('/', async (req: Request, res: Response) => {
     try {
-        
+    
         await Books.findByIdAndDelete(req.query.id);
         
         res.status(200).json({
