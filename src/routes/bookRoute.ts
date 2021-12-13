@@ -84,10 +84,25 @@ router.post('/', multer.single("file") , async (req: Request, res: Response) => 
             
             res.status(200).json({ newbook}); 
          }
-
+         
          if (book) {
-             res.status(200).json({message: "Book already exists, Please go and update the stock inventory"})
-         } 
+             
+           await Books.findOneAndUpdate(
+            { _id: book._id }, 
+            {stock: JSON.parse(req.body.stock) + book.stock},
+               {
+                new: true
+            },
+            (err, book) => {
+              if (err) {
+                console.log(err)
+                res.status(400).json({ success: false, err });
+              } 
+            
+               res.status(200).json({ book: book } );
+            }
+          )
+        } 
         
         
     } catch (err) {
@@ -97,6 +112,29 @@ router.post('/', multer.single("file") , async (req: Request, res: Response) => 
 
 });
 
+
+router.patch('/', async (req: Request, res: Response) => {
+    try {
+        await Books.findOneAndUpdate(
+            { _id: req.query.id }, req.body,
+               {
+                new: true
+            },
+            (err, book) => {
+              if (err) {
+                console.log(err)
+                res.status(400).json({ success: false, err });
+              } 
+            
+               res.status(200).json({ book: book } );
+            }
+          )
+        
+    } catch (err) {
+        console.log(err)
+        
+    }
+})
 
 
 
