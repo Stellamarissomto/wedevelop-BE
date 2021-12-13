@@ -11,3 +11,21 @@ Bronze level: Create a service for the bookstore.
 2.3. Book stock in inventory.
 3. Create two unit tests.
 4. Create a public repo on github and upload your solution.
+
+Gold level: Create a service for the bookstore orders
+· Tasks:
+··· Create an order.
+··· List all orders.
+Upload your solution to github.
+ Details: 
+···· Order’s structure:
+······ Order product (book).
+······ Order quantity (number of book copies ordered).
+··· If you create an order for n copies of a book, you must delete n copies of this book in the inventory.
+··· n > 0.
+··· if you try to create an order for a book that EXCEED the number of copies available, then this order CAN'T be created.
+··· There are no more restrictions.
+Pablo Cristo8:49 PM
+Silver level:
+· Create a unit test.
+· Upload your solution to github.
