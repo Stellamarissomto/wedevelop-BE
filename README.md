@@ -25,7 +25,6 @@ Upload your solution to github.
 ··· n > 0.
 ··· if you try to create an order for a book that EXCEED the number of copies available, then this order CAN'T be created.
 ··· There are no more restrictions.
-Pablo Cristo8:49 PM
 Silver level:
 · Create a unit test.
 · Upload your solution to github.
